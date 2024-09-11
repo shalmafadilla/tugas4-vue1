@@ -5,22 +5,23 @@ import { ref } from 'vue'; // Import ref untuk reactive data
 import image1 from '@/assets/pict1.png';
 import image2 from '@/assets/pict2.png';
 import image3 from '@/assets/pict3.png';
+import image4 from '@/assets/pict4.png';
 
 const count = ref(0); // Inisialisasi counter
-const boxColor = ref('lightgray'); // Inisialisasi warna box
+const color = ref('lightgray'); // Inisialisasi warna
 const currentImageIndex = ref(0); // Inisialisasi index gambar yang tampil saat ini
 
 // Daftar gambar lokal untuk carousel
-const images = [image1, image2, image3];
+const images = [image1, image2, image3, image4];
 
 function increment() {
   count.value++; // Fungsi untuk menambah counter
 }
 
 function changeColor() {
-  // Mengubah warna kotak secara acak
+  // Mengubah warna secara acak
   const colors = ['lightgray', 'lightblue', 'lightgreen', 'lightcoral', 'lightyellow'];
-  boxColor.value = colors[Math.floor(Math.random() * colors.length)];
+  color.value = colors[Math.floor(Math.random() * colors.length)];
 }
 
 function nextImage() {
@@ -34,19 +35,18 @@ function prevImage() {
 
 <template>
   <div>
-    <!-- Counter Section -->
-    <p>Counter: {{ count }}</p>
+    <p>Berhitung: {{ count }}</p>
     <button @click="increment">Tambah</button>
     
-    <!-- Box Color Section -->
-    <div :style="{ backgroundColor: boxColor, width: '200px', height: '200px', margin: '20px auto' }"></div>
-    <button @click="changeColor">Ubah Warna Box</button>
+    <div :style="{ backgroundColor: color, width: '200px', height: '200px', margin: '20px auto', borderRadius: '50%' }"></div>
+    <button @click="changeColor">Ubah Warna</button>
     
-    <!-- Image Carousel Section -->
     <div class="carousel">
-      <button @click="prevImage">Previous</button>
       <img :src="images[currentImageIndex]" alt="carousel image" />
+      <div class="carousel2">
+      <button @click="prevImage">Previous</button>
       <button @click="nextImage">Next</button>
+    </div>
     </div>
   </div>
 </template>
@@ -54,13 +54,20 @@ function prevImage() {
 <style scoped>
 div {
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 2px;
 }
 
 button {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+  padding: 10px 15px;
+  font-size: 17px;
   cursor: pointer;
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  margin: 0 50px;
+}
+
+button:hover{
+  background-color: rgb(255, 149, 248);
 }
 
 div > div {
@@ -68,11 +75,18 @@ div > div {
 }
 
 .carousel {
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.carouse2 {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 20px;
 }
+
 
 .carousel img {
   width: 600px;
