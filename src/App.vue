@@ -44,8 +44,8 @@ function prevImage() {
     <div class="carousel">
       <img :src="images[currentImageIndex]" alt="carousel image" />
       <div class="carousel2">
-      <button @click="prevImage"> <= Previous</button>
-      <button @click="nextImage">Next =></button>
+      <button @click="prevImage">Kembali</button>
+      <button @click="nextImage">Lanjut</button>
     </div>
     </div>
   </div>
@@ -94,5 +94,12 @@ div > div {
   object-fit: cover;
   margin: 0 10px;
   border-radius: 10px;
+}
+
+#app {
+  display: block;
+  grid-template-rows: none;
+  grid-template-columns: none;
+  gap: 0;
 }
 </style>
