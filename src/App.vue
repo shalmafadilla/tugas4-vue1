@@ -35,7 +35,7 @@ function prevImage() {
 
 <template>
   <div>
-    <p>Berhitung: {{ count }}</p>
+    <p style="color: white;">Berhitung: {{ count }}</p>
     <button @click="increment">Tambah</button>
     
     <div :style="{ backgroundColor: color, width: '200px', height: '200px', margin: '20px auto', borderRadius: '50%' }"></div>
@@ -44,8 +44,8 @@ function prevImage() {
     <div class="carousel">
       <img :src="images[currentImageIndex]" alt="carousel image" />
       <div class="carousel2">
-      <button @click="prevImage">Previous</button>
-      <button @click="nextImage">Next</button>
+      <button @click="prevImage"> <= Previous</button>
+      <button @click="nextImage">Next =></button>
     </div>
     </div>
   </div>
@@ -67,7 +67,7 @@ button {
 }
 
 button:hover{
-  background-color: rgb(255, 149, 248);
+  background-color: rgb(149, 195, 255);
 }
 
 div > div {
